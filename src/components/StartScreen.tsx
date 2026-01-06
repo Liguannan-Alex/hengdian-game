@@ -1,8 +1,11 @@
+import { useState } from 'react';
 import { useGameStore } from '../store/gameStore';
+import { StatsPanel } from './StatsPanel';
 
 export function StartScreen() {
   const { startNewGame, continueGame, hasSavedGame } = useGameStore();
   const hasSave = hasSavedGame();
+  const [showStats, setShowStats] = useState(false);
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-hengdian-dark to-gray-900 flex flex-col items-center justify-center p-4">
@@ -36,7 +39,17 @@ export function StartScreen() {
             继续游戏
           </button>
         )}
+
+        <button
+          onClick={() => setShowStats(true)}
+          className="w-full py-3 px-8 bg-gray-700 hover:bg-gray-600 text-white font-medium rounded-lg text-lg transition-all duration-200"
+        >
+          📊 数据统计
+        </button>
       </div>
+
+      {/* 统计面板 */}
+      {showStats && <StatsPanel onClose={() => setShowStats(false)} />}
 
       {/* 底部信息 */}
       <div className="absolute bottom-8 text-center text-gray-500 text-sm">

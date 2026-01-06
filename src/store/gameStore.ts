@@ -8,6 +8,7 @@ import {
   Ending
 } from '../core/types';
 import { gameEngine } from '../core/GameEngine';
+import { analytics } from '../core/Analytics';
 
 interface GameStore {
   // 游戏状态
@@ -48,6 +49,9 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   // 开始新游戏
   startNewGame: () => {
+    analytics.newSession();
+    analytics.track('game_start');
+
     const newState = gameEngine.createNewGame();
     const talents = gameEngine.getRandomTalentsForSelection();
 
@@ -86,6 +90,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (!gameState) return;
 
     try {
+      analytics.track('talents_selected', { talents: talentIds });
+
       const newState = gameEngine.selectTalents(gameState, talentIds);
       set({
         gameState: newState,
@@ -102,6 +108,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (!gameState) return;
 
     try {
+      analytics.track('attributes_set', { attributes });
+
       const newState = gameEngine.distributeAttributes(gameState, attributes);
 
       // 获取第一个事件
@@ -141,6 +149,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     } else {
       // 没有更多事件，计算结局
       const finalState = gameEngine.calculateEnding(gameState);
+
+      analytics.track('game_end', {
+        ending: finalState.ending,
+        attributes: finalState.attributes,
+        choiceCount: finalState.eventHistory.length
+      });
+
       const ending = gameEngine.getEnding(finalState.ending || '');
 
       set({
@@ -156,6 +171,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (!gameState || !gameState.currentEvent) return;
 
     try {
+      analytics.track('choice_made', {
+        eventId: gameState.currentEvent.id,
+        choiceId,
+        stage: gameState.currentStage
+      });
+
       const newState = gameEngine.makeChoice(gameState, choiceId);
 
       // 检查是否触发了隐藏效果
@@ -182,6 +203,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
       // 如果进入结局阶段
       if (newState.phase === 'ending') {
+        analytics.track('game_end', {
+          ending: newState.ending,
+          attributes: newState.attributes,
+          choiceCount: newState.eventHistory.length
+        });
+
         const ending = gameEngine.getEnding(newState.ending || '');
         set({
           gameState: newState,
@@ -208,6 +235,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
       } else {
         // 没有更多事件，计算结局
         const finalState = gameEngine.calculateEnding(newState);
+
+        analytics.track('game_end', {
+          ending: finalState.ending,
+          attributes: finalState.attributes,
+          choiceCount: finalState.eventHistory.length
+        });
+
         const ending = gameEngine.getEnding(finalState.ending || '');
 
         set({
