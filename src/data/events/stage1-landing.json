@@ -1,0 +1,166 @@
+{
+  "events": [
+    {
+      "id": "landing_001",
+      "stage": "landing",
+      "title": "黑车还是公交",
+      "description": "出了义乌站，一个大哥凑过来：\"横店走不走？50块直达。\"旁边公交站牌写着：横店客运中心，票价15元，1.5小时。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "tags": ["transport"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "坐黑车，省时间",
+          "description": "50块钱买个方便",
+          "consequences": {
+            "attributeChanges": { "savings": -1 }
+          },
+          "hiddenChance": 0.2,
+          "hiddenConsequences": {
+            "attributeChanges": { "connections": 2 },
+            "setFlags": ["met_driver_boss"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "坐公交，省钱",
+          "description": "来日方长，先省着点",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "landing_002",
+      "stage": "landing",
+      "title": "第一顿饭",
+      "description": "到了横店镇，饿得前胸贴后背。街边有个热闹的东北饺子馆，隔壁是便宜的兰州拉面。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "tags": ["food", "social"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "去饺子馆，人多热闹",
+          "description": "说不定能认识同行",
+          "consequences": {
+            "attributeChanges": { "savings": -1, "connections": 1 }
+          },
+          "hiddenChance": 0.3,
+          "hiddenConsequences": {
+            "setFlags": ["met_senior_actor"],
+            "attributeChanges": { "connections": 1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "吃拉面，便宜实惠",
+          "description": "先填饱肚子再说",
+          "consequences": {
+            "attributeChanges": { "savings": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "landing_003",
+      "stage": "landing",
+      "title": "找房大作战",
+      "description": "晚上得找个住的地方。群演公寓床位30一天，但是十几个人挤一间。也可以租个单间，一个月1200。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "tags": ["housing"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "住群演公寓",
+          "description": "省钱，还能认识人",
+          "consequences": {
+            "attributeChanges": { "connections": 2, "resilience": -1 }
+          },
+          "hiddenChance": 0.25,
+          "hiddenConsequences": {
+            "setFlags": ["roommate_is_agent"],
+            "attributeChanges": { "connections": 2 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "租个单间",
+          "description": "休息好才能拍好戏",
+          "consequences": {
+            "attributeChanges": { "savings": -2, "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "landing_004",
+      "stage": "landing",
+      "title": "办演员证",
+      "description": "第二天一早去演员工会办证。工作人员说：\"押金200，办好了可以接通告。你要拍个证件照吗？我们这有专业的，50块。\"",
+      "baseChance": 0.8,
+      "tags": ["official"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "在这拍证件照",
+          "description": "专业的应该好看",
+          "consequences": {
+            "attributeChanges": { "savings": -1, "appearance": 1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "自己找地方拍",
+          "description": "街边照相馆便宜多了",
+          "consequences": {}
+        },
+        {
+          "id": "c3",
+          "text": "用手机自拍",
+          "description": "省钱，但可能不够正式",
+          "consequences": {
+            "attributeChanges": { "appearance": -1 }
+          },
+          "hiddenChance": 0.1,
+          "hiddenConsequences": {
+            "setFlags": ["viral_id_photo"],
+            "attributeChanges": { "connections": 3 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "landing_005",
+      "stage": "landing",
+      "title": "群头来电",
+      "description": "证还没办完，手机响了。\"喂，明天有个古装戏，200块一天，凌晨4点集合，干不干？\"这是你来横店的第一个通告。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "tags": ["first_job", "early_call"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "干！第一单必须接",
+          "description": "不管多早都要去",
+          "consequences": {
+            "attributeChanges": { "savings": 2, "resilience": 1 },
+            "setFlags": ["first_job_done"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "太早了，缓一天",
+          "description": "刚来需要休息",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 },
+            "setFlags": ["picky_about_jobs"]
+          }
+        }
+      ]
+    }
+  ]
+}

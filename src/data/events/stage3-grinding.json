@@ -1,0 +1,258 @@
+{
+  "events": [
+    {
+      "id": "grinding_001",
+      "stage": "grinding",
+      "title": "淡季来临",
+      "description": "连续一周没有通告，群里的活都被抢光了。房租快到期，存款在减少。",
+      "baseChance": 0.9,
+      "isRequired": true,
+      "tags": ["financial", "crisis"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "去找群头问问",
+          "description": "刷刷存在感",
+          "consequences": {
+            "attributeChanges": { "connections": 1 }
+          },
+          "hiddenChance": 0.4,
+          "hiddenConsequences": {
+            "attributeChanges": { "savings": 2 },
+            "setFlags": ["got_offseason_job"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "找个临时工作",
+          "description": "送外卖或者服务员",
+          "consequences": {
+            "attributeChanges": { "savings": 2, "acting": -1 }
+          }
+        },
+        {
+          "id": "c3",
+          "text": "硬撑，等机会",
+          "description": "我是来演戏的",
+          "consequences": {
+            "attributeChanges": { "savings": -2, "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "grinding_002",
+      "stage": "grinding",
+      "title": "被导演骂了",
+      "description": "拍一个走位，你总是走错。副导演当着所有人的面吼：\"你会不会演戏！换人！\"",
+      "baseChance": 0.7,
+      "tags": ["conflict", "setback"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "道歉，请求再来一次",
+          "description": "放低姿态",
+          "consequences": {
+            "attributeChanges": { "resilience": -1 }
+          },
+          "hiddenChance": 0.5,
+          "hiddenConsequences": {
+            "attributeChanges": { "acting": 2, "resilience": 1 },
+            "setFlags": ["earned_respect"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "默默收拾东西走人",
+          "description": "不争辩",
+          "consequences": {
+            "attributeChanges": { "resilience": -1, "savings": -1 }
+          }
+        },
+        {
+          "id": "c3",
+          "text": "据理力争",
+          "description": "是指示不清楚",
+          "consequences": {
+            "attributeChanges": { "connections": -2 }
+          },
+          "hiddenChance": 0.1,
+          "hiddenConsequences": {
+            "setFlags": ["troublemaker_reputation"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grinding_003",
+      "stage": "grinding",
+      "title": "室友的邀请",
+      "description": "室友神秘兮兮地说：\"有个来钱快的路子，跟我去不？\"听起来像是网络直播或者其他灰色地带的事。",
+      "baseChance": 0.6,
+      "tags": ["choice", "risk"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "问清楚是什么",
+          "description": "谨慎一点",
+          "consequences": {
+            "attributeChanges": { "connections": 1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "直接拒绝",
+          "description": "不想冒险",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        },
+        {
+          "id": "c3",
+          "text": "跟他去看看",
+          "description": "说不定真能赚钱",
+          "consequences": {},
+          "hiddenChance": 0.5,
+          "hiddenConsequences": {
+            "attributeChanges": { "savings": 4 },
+            "setFlags": ["side_hustle"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grinding_004",
+      "stage": "grinding",
+      "title": "特约转正机会",
+      "description": "一个经常合作的副导演私下跟你说：\"有个小角色，有台词，你想不想试试？\"",
+      "baseChance": 0.5,
+      "conditions": {
+        "minAttributes": { "acting": 6 }
+      },
+      "tags": ["opportunity", "upgrade"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "想！我准备好了",
+          "description": "机会来了",
+          "consequences": {
+            "setFlags": ["audition_chance"]
+          },
+          "hiddenChance": 0.6,
+          "hiddenConsequences": {
+            "attributeChanges": { "acting": 2, "savings": 5, "connections": 2 },
+            "setFlags": ["got_speaking_role"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "我怕自己演不好",
+          "description": "太紧张了",
+          "consequences": {
+            "attributeChanges": { "resilience": -1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "grinding_005",
+      "stage": "grinding",
+      "title": "短视频走红",
+      "description": "室友帮你拍了一个横店日常的视频发到抖音上，突然火了！几万点赞，评论里都在问你是谁。",
+      "baseChance": 0.3,
+      "tags": ["social_media", "viral"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "趁热打铁，继续更新",
+          "description": "说不定能当网红",
+          "consequences": {
+            "attributeChanges": { "connections": 3 },
+            "setFlags": ["started_vlogging"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "删掉视频",
+          "description": "我要专心演戏",
+          "consequences": {
+            "attributeChanges": { "acting": 1 }
+          }
+        },
+        {
+          "id": "c3",
+          "text": "不管它",
+          "description": "随缘吧",
+          "consequences": {}
+        }
+      ]
+    },
+    {
+      "id": "grinding_006",
+      "stage": "grinding",
+      "title": "家里来电话",
+      "description": "妈妈打电话来：\"在横店怎么样？什么时候能上电视啊？你表哥都结婚了...\"",
+      "baseChance": 0.8,
+      "tags": ["family", "pressure"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "报喜不报忧",
+          "description": "说一切都好",
+          "consequences": {
+            "attributeChanges": { "resilience": -1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "实话实说",
+          "description": "让家里知道真实情况",
+          "consequences": {
+            "attributeChanges": { "savings": 2 },
+            "setFlags": ["family_support"]
+          }
+        },
+        {
+          "id": "c3",
+          "text": "说考虑回去",
+          "description": "也许该放弃了",
+          "consequences": {
+            "attributeChanges": { "resilience": -2 },
+            "setFlags": ["considering_quitting"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "grinding_007",
+      "stage": "grinding",
+      "title": "群头换人",
+      "description": "跟你关系最好的群头突然不干了，要回老家。临走前给你介绍了另一个群头，但那人看起来不太好说话。",
+      "baseChance": 0.65,
+      "tags": ["networking", "change"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主动认识新群头",
+          "description": "得重新建立关系",
+          "consequences": {
+            "attributeChanges": { "connections": 1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "自己找其他群头",
+          "description": "多条路多个选择",
+          "consequences": {
+            "attributeChanges": { "connections": -1 },
+            "setFlags": ["independent_networking"]
+          },
+          "hiddenChance": 0.4,
+          "hiddenConsequences": {
+            "attributeChanges": { "connections": 3 }
+          }
+        }
+      ]
+    }
+  ]
+}

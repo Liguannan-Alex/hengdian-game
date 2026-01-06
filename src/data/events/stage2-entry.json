@@ -1,0 +1,206 @@
+{
+  "events": [
+    {
+      "id": "entry_001",
+      "stage": "entry",
+      "title": "第一场戏",
+      "description": "古装戏开拍，副导演喊：\"群演往前走，自然一点！\"你第一次面对镜头，心跳加速。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "conditions": {
+        "requiredFlags": ["first_job_done"]
+      },
+      "tags": ["first_scene", "action"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "按指示走，不多不少",
+          "description": "安全第一，别出错",
+          "consequences": {
+            "attributeChanges": { "acting": 1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "加点小动作，表现一下",
+          "description": "让导演注意到我",
+          "consequences": {
+            "attributeChanges": { "acting": -1 }
+          },
+          "hiddenChance": 0.15,
+          "hiddenConsequences": {
+            "attributeChanges": { "acting": 3, "connections": 1 },
+            "setFlags": ["noticed_by_director"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "entry_002",
+      "stage": "entry",
+      "title": "盒饭风波",
+      "description": "午饭时间，工作人员喊：\"群演那边排队！\"你看到前面有人插队拿盒饭。",
+      "baseChance": 0.9,
+      "tags": ["food", "conflict"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "老实排队",
+          "description": "多一事不如少一事",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "上前理论",
+          "description": "凭什么他插队",
+          "consequences": {
+            "attributeChanges": { "resilience": -1 }
+          },
+          "hiddenChance": 0.3,
+          "hiddenConsequences": {
+            "attributeChanges": { "connections": -2 },
+            "setFlags": ["made_enemy"]
+          }
+        },
+        {
+          "id": "c3",
+          "text": "和旁边的人聊天",
+          "description": "趁机认识人",
+          "consequences": {
+            "attributeChanges": { "connections": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "entry_003",
+      "stage": "entry",
+      "title": "群头的邀请",
+      "description": "收工后，带你来的群头说：\"小伙子不错，加我微信，以后有好活先叫你。\"还递过来一包烟。",
+      "baseChance": 0.85,
+      "tags": ["social", "networking"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "加微信，接烟",
+          "description": "入乡随俗",
+          "consequences": {
+            "attributeChanges": { "connections": 2 },
+            "setFlags": ["has_group_leader_contact"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "加微信，不抽烟",
+          "description": "关系要处，但不抽烟",
+          "consequences": {
+            "attributeChanges": { "connections": 1 },
+            "setFlags": ["has_group_leader_contact"]
+          }
+        },
+        {
+          "id": "c3",
+          "text": "客气拒绝",
+          "description": "想靠自己",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "entry_004",
+      "stage": "entry",
+      "title": "特约机会",
+      "description": "副导演突然过来：\"你，对，就是你，会骑马吗？有个特约的活，500一天。\"你根本不会骑马。",
+      "baseChance": 0.4,
+      "tags": ["opportunity", "special_role"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "会！我学过",
+          "description": "先答应再说",
+          "consequences": {},
+          "hiddenChance": 0.5,
+          "hiddenConsequences": {
+            "attributeChanges": { "savings": 5, "acting": 2, "connections": 1 },
+            "setFlags": ["first_special_role"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "不太会，但可以学",
+          "description": "诚实一点",
+          "consequences": {
+            "attributeChanges": { "acting": 1 }
+          }
+        },
+        {
+          "id": "c3",
+          "text": "不会",
+          "description": "别硬撑",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "entry_005",
+      "stage": "entry",
+      "title": "微信群通告",
+      "description": "凌晨2点，手机响个不停。群演微信群里群头在发通告：\"明天有个大夜戏，12点收工，150块，有没有人？\"",
+      "baseChance": 0.9,
+      "tags": ["night_scene", "choice"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接！睡觉算什么",
+          "description": "有钱就干",
+          "consequences": {
+            "attributeChanges": { "savings": 1, "resilience": -1 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "不接，身体要紧",
+          "description": "细水长流",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "entry_006",
+      "stage": "entry",
+      "title": "服装间奇遇",
+      "description": "去服装间换衣服，遇到一个面熟的人。仔细一看，这不是之前在某部戏里演过配角的吗？",
+      "baseChance": 0.6,
+      "tags": ["social", "celebrity"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "主动搭话",
+          "description": "前辈好",
+          "consequences": {
+            "attributeChanges": { "connections": 1 }
+          },
+          "hiddenChance": 0.4,
+          "hiddenConsequences": {
+            "attributeChanges": { "connections": 2, "acting": 1 },
+            "setFlags": ["knows_experienced_actor"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "装作没看到",
+          "description": "人家可能不想被打扰",
+          "consequences": {}
+        }
+      ]
+    }
+  ]
+}

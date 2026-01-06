@@ -1,0 +1,206 @@
+{
+  "events": [
+    {
+      "id": "crossroad_001",
+      "stage": "crossroad",
+      "title": "经纪公司找上门",
+      "description": "一个自称经纪人的人加你微信：\"看你形象不错，有兴趣签约我们公司吗？包装培训，有机会出演网剧。\"但签约费要2万。",
+      "baseChance": 0.6,
+      "conditions": {
+        "minAttributes": { "appearance": 6 }
+      },
+      "tags": ["opportunity", "risk"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "交钱签约",
+          "description": "搏一把",
+          "consequences": {
+            "attributeChanges": { "savings": -5 }
+          },
+          "hiddenChance": 0.3,
+          "hiddenConsequences": {
+            "attributeChanges": { "acting": 3, "connections": 4 },
+            "setFlags": ["signed_agency"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "打听一下这公司",
+          "description": "先调查清楚",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          },
+          "hiddenChance": 0.7,
+          "hiddenConsequences": {
+            "setFlags": ["avoided_scam"]
+          }
+        },
+        {
+          "id": "c3",
+          "text": "直接拒绝",
+          "description": "天上不会掉馅饼",
+          "consequences": {}
+        }
+      ]
+    },
+    {
+      "id": "crossroad_002",
+      "stage": "crossroad",
+      "title": "回家过年",
+      "description": "春节了，一年没回家。买票回去吗？路费加给亲戚的礼物，至少要花掉2000。",
+      "baseChance": 0.9,
+      "isRequired": true,
+      "tags": ["family", "choice"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "回家过年",
+          "description": "一年没见爸妈了",
+          "consequences": {
+            "attributeChanges": { "savings": -3, "resilience": 2 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "留在横店",
+          "description": "省钱，还能接春节档的活",
+          "consequences": {
+            "attributeChanges": { "savings": 2, "resilience": -1 }
+          },
+          "hiddenChance": 0.5,
+          "hiddenConsequences": {
+            "attributeChanges": { "savings": 3, "connections": 2 },
+            "setFlags": ["spring_festival_work"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "crossroad_003",
+      "stage": "crossroad",
+      "title": "转行幕后？",
+      "description": "一个副导演跟你说：\"你人细心，考虑转行做场务或者剧组统筹吗？稳定，不用风吹日晒。\"",
+      "baseChance": 0.5,
+      "tags": ["career", "change"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "考虑一下",
+          "description": "也是条路",
+          "consequences": {
+            "setFlags": ["considering_behind_scenes"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "我还想演戏",
+          "description": "坚持梦想",
+          "consequences": {
+            "attributeChanges": { "resilience": 1, "acting": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "crossroad_004",
+      "stage": "crossroad",
+      "title": "大剧组机会",
+      "description": "听说有个大IP剧在横店开机，需要大量群演，而且特约价格给得高。但竞争激烈，需要提前排队等选角。",
+      "baseChance": 0.7,
+      "tags": ["opportunity", "big_chance"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "天没亮就去排队",
+          "description": "拼一把",
+          "consequences": {
+            "attributeChanges": { "resilience": -1 }
+          },
+          "hiddenChance": 0.4,
+          "hiddenConsequences": {
+            "attributeChanges": { "savings": 5, "acting": 2, "connections": 3 },
+            "setFlags": ["joined_big_production"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "找熟悉的群头帮忙",
+          "description": "走关系",
+          "consequences": {
+            "attributeChanges": { "connections": -1 }
+          },
+          "hiddenChance": 0.6,
+          "hiddenConsequences": {
+            "attributeChanges": { "savings": 4, "connections": 1 },
+            "setFlags": ["joined_big_production"]
+          }
+        },
+        {
+          "id": "c3",
+          "text": "算了，太卷了",
+          "description": "做好本职就行",
+          "consequences": {}
+        }
+      ]
+    },
+    {
+      "id": "crossroad_005",
+      "stage": "crossroad",
+      "title": "开店的念头",
+      "description": "横店镇上的一个小铺面在转让，开个群演服务的店怎么样？卖盒饭、租服装、代办演员证...",
+      "baseChance": 0.4,
+      "conditions": {
+        "minAttributes": { "savings": 6 }
+      },
+      "tags": ["business", "change"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "盘下来试试",
+          "description": "换个活法",
+          "consequences": {
+            "attributeChanges": { "savings": -5, "connections": 2 },
+            "setFlags": ["started_business"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "再看看",
+          "description": "不急",
+          "consequences": {}
+        }
+      ]
+    },
+    {
+      "id": "crossroad_006",
+      "stage": "crossroad",
+      "title": "网红经济",
+      "description": "你的短视频账号已经有了5万粉丝，有品牌找你做推广，一条视频给500块。",
+      "baseChance": 0.4,
+      "conditions": {
+        "requiredFlags": ["started_vlogging"]
+      },
+      "tags": ["social_media", "income"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "接推广",
+          "description": "能赚钱为什么不赚",
+          "consequences": {
+            "attributeChanges": { "savings": 3, "connections": 1 },
+            "setFlags": ["influencer_path"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "保持账号纯粹",
+          "description": "不想变味",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        }
+      ]
+    }
+  ]
+}

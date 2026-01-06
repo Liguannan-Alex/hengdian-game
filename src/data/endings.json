@@ -1,0 +1,104 @@
+{
+  "endings": [
+    {
+      "id": "ending_star",
+      "name": "签约艺人",
+      "type": "upper",
+      "icon": "🌟",
+      "title": "梦想成真",
+      "description": "你终于签约了正规经纪公司，开始了真正的演艺生涯。",
+      "requirements": {
+        "minAttributes": { "acting": 8, "appearance": 7, "connections": 6 },
+        "requiredFlags": ["breakthrough_success"]
+      },
+      "epilogue": "从群演到艺人，这条路你走了三年。当助理递上印有你名字的演出合同时，你忽然想起当初拖着行李箱踏入横店的自己。那个时候，你只带着一腔热血和500块钱。现在，你的海报贴在了横店影视城的入口处。每次路过，都有群演在海报前合影，就像当初的你一样。"
+    },
+    {
+      "id": "ending_featured",
+      "name": "稳定特约",
+      "type": "upper",
+      "icon": "🎬",
+      "title": "职业特约演员",
+      "description": "虽然没有大红大紫，但你成为了导演们信任的特约演员。",
+      "requirements": {
+        "minAttributes": { "acting": 7, "connections": 5 }
+      },
+      "epilogue": "在横店，你有了自己的位置。虽然不是主角，但几乎每部大戏里都能看到你的脸。副导演们存着你的电话，有好活第一个想到你。收入稳定，不再担心下一顿饭。有时候在电视上看到自己的镜头，你会觉得一切都值了。这就是你选择的人生——不是最耀眼的星星，但也在发着自己的光。"
+    },
+    {
+      "id": "ending_influencer",
+      "name": "短视频走红",
+      "type": "upper",
+      "icon": "📹",
+      "title": "横店网红",
+      "description": "你的短视频账号积累了大量粉丝，开辟了另一条成功之路。",
+      "requirements": {
+        "minAttributes": { "connections": 7 },
+        "requiredFlags": ["influencer_path"]
+      },
+      "epilogue": "百万粉丝，这是你当初完全没想到的。'横店群演日记'成了你的标签，每条视频都有几十万播放。品牌合作接不过来，收入比当演员时翻了几倍。有时候你会想，这算是演员吗？但看着评论区那些'因为你我也想去横店'的留言，你觉得这也是一种表演，一种记录真实生活的表演。"
+    },
+    {
+      "id": "ending_crew",
+      "name": "转行幕后",
+      "type": "middle",
+      "icon": "🪑",
+      "title": "幕后英雄",
+      "description": "你成为了剧组里不可或缺的幕后工作人员。",
+      "requirements": {
+        "minAttributes": { "connections": 5, "resilience": 6 },
+        "requiredFlags": ["considering_behind_scenes"]
+      },
+      "epilogue": "从群演到场务，从场务到副导演助理，你在幕后找到了自己的价值。不用化妆，不用等镜头，但每一场戏的顺利进行都有你的功劳。剧组里的人都叫你一声'老师'，因为你太了解这个行业了。有时候看着监视器里的群演，你会想起当初的自己，然后对他们多一分照顾。"
+    },
+    {
+      "id": "ending_business",
+      "name": "开店扎根",
+      "type": "middle",
+      "icon": "🍜",
+      "title": "横店小老板",
+      "description": "你在横店开了一家服务群演的小店，生意红火。",
+      "requirements": {
+        "minAttributes": { "savings": 6, "connections": 5 },
+        "requiredFlags": ["started_business"]
+      },
+      "epilogue": "'群演之家'——这是你店铺的名字。卖盒饭、租服装、代办演员证，所有群演需要的东西这里都有。生意稳定，收入可观。有时候你会给刚来的群演讲讲自己的经历，告诉他们横店的门道。你没有成为演员，但你成了横店的一部分。每个群演的故事里，都有你的身影。"
+    },
+    {
+      "id": "ending_veteran",
+      "name": "横店钉子户",
+      "type": "middle",
+      "icon": "🧘",
+      "title": "不红但自洽",
+      "description": "你依然是群演，但已经与这种生活和解。",
+      "requirements": {
+        "minAttributes": { "resilience": 7 }
+      },
+      "epilogue": "三年了，你还是群演。但和刚来时不同，你不再焦虑，不再比较。这就是你的生活——有戏就拍，没戏就晒太阳。存款不多但够用，朋友不多但真诚。有人问你后悔吗？你说不后悔。不是每个人都要成为主角，但每个人都可以演好自己的人生。在横店，你找到了一种平静。"
+    },
+    {
+      "id": "ending_home",
+      "name": "回老家",
+      "type": "lower",
+      "icon": "🏠",
+      "title": "叶落归根",
+      "description": "横店的梦碎了，但生活还要继续。",
+      "requirements": {
+        "maxAttributes": { "savings": 2 }
+      },
+      "epilogue": "钱花光了，梦也醒了。收拾行李的那天，你最后看了一眼横店的街道。三年，你拍过无数的戏，演过无数的角色，却没有一个真正属于你。回到老家，找一份普通工作，过普通人的生活。有时候在电视上看到横店拍的剧，你会愣一下，然后换台。那是另一个世界，你曾经去过，但终究不属于那里。"
+    },
+    {
+      "id": "ending_debt",
+      "name": "负债离场",
+      "type": "lower",
+      "icon": "💸",
+      "title": "黯然退场",
+      "description": "欠下的债让你不得不离开。",
+      "requirements": {
+        "maxAttributes": { "savings": 0, "resilience": 2 }
+      },
+      "epilogue": "签的那个'经纪公司'是骗子，借的钱还不上，房租也欠了三个月。你连买车票的钱都是问老家借的。离开横店的那天，你甚至不敢回头看。这个地方，你爱过，恨过，最终只剩下疲惫。欠的钱要慢慢还，日子要慢慢过。但有时候你会想，如果当初不那么冲动，是不是会不一样？不过，人生没有如果。"
+    }
+  ]
+}

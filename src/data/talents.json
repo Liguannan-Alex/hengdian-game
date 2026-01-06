@@ -1,0 +1,191 @@
+{
+  "talents": [
+    {
+      "id": "pretty_face",
+      "name": "天生丽质",
+      "description": "爹妈给的好底子，镜头特别吃你",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "appearance": 3 }
+      }
+    },
+    {
+      "id": "drama_school",
+      "name": "科班出身",
+      "description": "正经戏剧学院毕业，基本功扎实",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "acting": 3 }
+      }
+    },
+    {
+      "id": "social_butterfly",
+      "name": "自来熟",
+      "description": "三句话能和陌生人称兄道弟",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "connections": 2 },
+        "eventModifiers": [{ "tag": "social", "probabilityModifier": 1.5 }]
+      }
+    },
+    {
+      "id": "rich_family",
+      "name": "家里有矿",
+      "description": "不差钱，可以慢慢熬",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "savings": 5 }
+      }
+    },
+    {
+      "id": "iron_will",
+      "name": "打不死的小强",
+      "description": "越挫越勇，心理素质超强",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "resilience": 3 }
+      }
+    },
+    {
+      "id": "martial_arts",
+      "name": "练家子",
+      "description": "会武术或特技，古装戏抢手",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "acting": 1, "appearance": 1 },
+        "eventModifiers": [{ "tag": "action", "probabilityModifier": 2.0 }]
+      }
+    },
+    {
+      "id": "local_dialect",
+      "name": "方言达人",
+      "description": "会多种方言，适应各种角色",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "acting": 2 }
+      }
+    },
+    {
+      "id": "early_bird",
+      "name": "早起鸟儿",
+      "description": "凌晨4点的通告也不在话下",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "resilience": 2 },
+        "eventModifiers": [{ "tag": "early_call", "probabilityModifier": 1.3 }]
+      }
+    },
+    {
+      "id": "frugal",
+      "name": "省钱大师",
+      "description": "一块钱掰成两半花",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "savings": 2 }
+      }
+    },
+    {
+      "id": "photogenic",
+      "name": "镜头感",
+      "description": "知道怎么面对镜头最好看",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "appearance": 2, "acting": 1 }
+      }
+    },
+    {
+      "id": "networker",
+      "name": "老乡会长",
+      "description": "来横店第一天就能找到同乡",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "connections": 3 }
+      }
+    },
+    {
+      "id": "thick_skin",
+      "name": "脸皮厚",
+      "description": "被骂不往心里去，下次照样冲",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "resilience": 2, "connections": 1 }
+      }
+    },
+    {
+      "id": "night_owl",
+      "name": "夜猫子",
+      "description": "夜戏拍到凌晨？没问题",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "resilience": 1 },
+        "eventModifiers": [{ "tag": "night_scene", "probabilityModifier": 1.5 }]
+      }
+    },
+    {
+      "id": "quick_learner",
+      "name": "模仿达人",
+      "description": "看一遍就能学会，现场悟性高",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "acting": 2 }
+      }
+    },
+    {
+      "id": "sweet_talker",
+      "name": "嘴甜",
+      "description": "会说话，导演助理都喜欢你",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "connections": 2 },
+        "eventModifiers": [{ "tag": "director", "probabilityModifier": 1.3 }]
+      }
+    },
+    {
+      "id": "patient",
+      "name": "坐得住",
+      "description": "等戏8小时也不烦躁",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "resilience": 2 }
+      }
+    },
+    {
+      "id": "distinctive_look",
+      "name": "特型脸",
+      "description": "长相有特点，容易被记住",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "appearance": 1 },
+        "eventModifiers": [{ "tag": "special_role", "probabilityModifier": 2.0 }]
+      }
+    },
+    {
+      "id": "internet_savvy",
+      "name": "网感好",
+      "description": "懂短视频，会自我营销",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "connections": 1 },
+        "eventModifiers": [{ "tag": "social_media", "probabilityModifier": 2.0 }]
+      }
+    },
+    {
+      "id": "tough_body",
+      "name": "铁打的身板",
+      "description": "不怕冷不怕热，很少生病",
+      "category": "initial",
+      "effects": {
+        "attributeBonuses": { "resilience": 2, "savings": 1 }
+      }
+    },
+    {
+      "id": "lucky_star",
+      "name": "天选之人",
+      "description": "运气总是特别好",
+      "category": "initial",
+      "effects": {
+        "eventModifiers": [{ "probabilityModifier": 1.2 }]
+      }
+    }
+  ]
+}

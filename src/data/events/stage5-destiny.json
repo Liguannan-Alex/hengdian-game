@@ -1,0 +1,109 @@
+{
+  "events": [
+    {
+      "id": "destiny_001",
+      "stage": "destiny",
+      "title": "三年之约",
+      "description": "不知不觉已经三年了。站在横店的街头，看着来来往往的群演，你回想起当初拖着行李箱到这里的自己。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "tags": ["reflection"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "我还要继续走下去",
+          "description": "坚持就是胜利",
+          "consequences": {
+            "attributeChanges": { "resilience": 2 }
+          }
+        },
+        {
+          "id": "c2",
+          "text": "也许是时候做个决定了",
+          "description": "认真思考未来",
+          "consequences": {
+            "setFlags": ["final_decision"]
+          }
+        }
+      ]
+    },
+    {
+      "id": "destiny_002",
+      "stage": "destiny",
+      "title": "最后的试镜",
+      "description": "一个正规剧组在海选主要角色，你符合条件。这可能是改变命运的机会，也可能是最后一次尝试。",
+      "baseChance": 0.6,
+      "conditions": {
+        "minAttributes": { "acting": 7, "appearance": 6 }
+      },
+      "tags": ["opportunity", "final_chance"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "全力以赴",
+          "description": "把这些年学到的全用上",
+          "consequences": {},
+          "hiddenChance": 0.35,
+          "hiddenConsequences": {
+            "attributeChanges": { "acting": 5, "connections": 5 },
+            "setFlags": ["breakthrough_success"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "当作一次普通试镜",
+          "description": "不给自己太大压力",
+          "consequences": {
+            "attributeChanges": { "resilience": 1 }
+          }
+        }
+      ]
+    },
+    {
+      "id": "destiny_003",
+      "stage": "destiny",
+      "title": "收到合同",
+      "description": "一个网剧导演联系你：\"我看过你的表演，愿意签你做主演。不过片酬不高，而且要跟组三个月。\"",
+      "baseChance": 0.4,
+      "conditions": {
+        "minAttributes": { "acting": 8 }
+      },
+      "tags": ["success", "contract"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "签！终于等到这一天",
+          "description": "梦想成真",
+          "consequences": {
+            "setFlags": ["signed_leading_role"]
+          }
+        },
+        {
+          "id": "c2",
+          "text": "再考虑考虑",
+          "description": "想清楚再决定",
+          "consequences": {}
+        }
+      ]
+    },
+    {
+      "id": "destiny_004",
+      "stage": "destiny",
+      "title": "人生总结",
+      "description": "三年横店生涯即将画上句号。不管结果如何，这段经历已经成为你生命的一部分。",
+      "baseChance": 1.0,
+      "isRequired": true,
+      "tags": ["ending", "summary"],
+      "choices": [
+        {
+          "id": "c1",
+          "text": "感谢这一切",
+          "description": "接受命运的安排",
+          "consequences": {
+            "setFlags": ["story_complete"]
+          }
+        }
+      ]
+    }
+  ]
+}
