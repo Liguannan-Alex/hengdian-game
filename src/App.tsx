@@ -4,9 +4,15 @@ import { TalentSelect } from './components/TalentSelect';
 import { AttributeSet } from './components/AttributeSet';
 import { GameScreen } from './components/GameScreen';
 import { EndingScreen } from './components/EndingScreen';
+import { WeChatGuide, isWeChatBrowser } from './components/WeChatGuide';
 
 function App() {
   const { gameState } = useGameStore();
+
+  // 检测微信浏览器
+  if (isWeChatBrowser()) {
+    return <WeChatGuide url={window.location.href} />;
+  }
 
   // 根据游戏阶段渲染不同的界面
   const renderScreen = () => {
